@@ -26,7 +26,7 @@ async function main() {
 async function checkUrl(url, params, type) {
 	params = params || [];
 	type = type || "GET";
-	//console.log(url);
+	console.log(url);
 	let flag = false;
 	try {
 		let res;

@@ -3,7 +3,7 @@
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: ja.dbpedia.org
-  url: http://ja.dbpedia.org/sparql
+  url: https://ja.dbpedia.org/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: query.wikidata.org
