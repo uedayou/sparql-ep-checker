@@ -1,0 +1,12 @@
+- url: https://dbpedia.org/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: http://ja.dbpedia.org/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://query.wikidata.org/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://www.harp.lg.jp/opendata/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10

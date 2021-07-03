@@ -1,4 +1,5 @@
 const fs = require('fs');
+const yaml = require('js-yaml');
 const axios = require('axios');
 
 main();
@@ -6,18 +7,25 @@ main();
 async function main() {
 	const [success, failure] = getSvgs();
 	const docs_dir = __dirname+"/../docs/"
-	let url;
-	url = "https://uedayou.net/";
+	const urllist = yaml.safeLoad(fs.readFileSync(__dirname+"/../urllist.yaml", 'utf8'));
 
-	const flag = await check(url);
-	const svg = flag ? success : failure;
-	console.log(flag);
-	const dir = docs_dir+encodeURIComponent(url)+"/";
-	!fs.existsSync(dir) && fs.mkdirSync(dir, { recursive: true });
-	fs.writeFileSync(dir+"check.svg", success);
+	for (const obj of urllist) {
+		let url = obj.url;
+		let param;
+		for (const key in obj.params) {
+			param = param+"&" || "?";
+			param += key+"="+encodeURI(obj.params[key]);
+		}
+		if (param) url += param;
+		const flag = await checkUrl(url);
+		const svg = flag ? success : failure;
+		const dir = docs_dir+encodeURIComponent(obj.url)+"/";
+		!fs.existsSync(dir) && fs.mkdirSync(dir, { recursive: true });
+		fs.writeFileSync(dir+"check.svg", success);
+	}
 }
 
-async function check(url) {
+async function checkUrl(url) {
 	let flag = false;
 	try {
 		const res = await axios(url);
