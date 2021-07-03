@@ -23,6 +23,7 @@ async function main() {
 		!fs.existsSync(dir) && fs.mkdirSync(dir, { recursive: true });
 		fs.writeFileSync(dir+"check.svg", svg);
 	}
+	fs.writeFileSync(docs_dir+"update.txt", Date.now().toString());
 }
 
 async function checkUrl(url) {
