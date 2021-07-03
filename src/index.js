@@ -7,13 +7,13 @@ main();
 async function main() {
 	const [success, failure] = getSvgs();
 	const docs_dir = __dirname+"/../docs/"
-	const urllist = yaml.safeLoad(fs.readFileSync(__dirname+"/../urllist.yaml", 'utf8'));
+	const urllist = yaml.load(fs.readFileSync(__dirname+"/../urllist.yaml", 'utf8'));
 
 	for (const obj of urllist) {
 		let url = obj.url;
 		let param;
 		for (const key in obj.params) {
-			param = param+"&" || "?";
+			param = param ? param+"&" : "?";
 			param += key+"="+encodeURI(obj.params[key]);
 		}
 		if (param) url += param;
@@ -21,7 +21,7 @@ async function main() {
 		const svg = flag ? success : failure;
 		const dir = docs_dir+encodeURIComponent(obj.url)+"/";
 		!fs.existsSync(dir) && fs.mkdirSync(dir, { recursive: true });
-		fs.writeFileSync(dir+"check.svg", success);
+		fs.writeFileSync(dir+"check.svg", svg);
 	}
 }
 
