@@ -10,3 +10,93 @@
 - url: https://www.harp.lg.jp/opendata/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://opendata.pref.saitama.lg.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://data.city.osaka.lg.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://sparql.city.kyoto.lg.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://data.city.kobe.lg.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://data.city.yokohama.lg.jp/
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://data.city.ikoma.lg.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://lod.dataeye.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: http://data.yafjp.org/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://sparql.opendata.cc/data/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://sparql.odp.jig.jp/api/v1/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://jpsearch.go.jp/rdf/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://ld.cultural.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://id.ndl.go.jp/auth/ndla
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://lib-lod.tsunagun.org/sparql/isil-lod-jp/query
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://lib-lod.tsunagun.org/sparql/ndlsh/query
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://lib-lod.tsunagun.org/sparql/ndc9/query
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://lib-lod.tsunagun.org/sparql/ndc8/query
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://sparql.linkedopendata.cf/
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: http://linkedgeodata.org/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: http://data.e-stat.go.jp/lod/sparql/alldata/query
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://api.info.gbiz.go.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://linkeddata.rcgs.jp/
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: http://dbtune.org/musicbrainz/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://prismdb.takanakahiko.me/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://dydra.com/haychmash/owlramen/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://api.jrslod.uedayou.net/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: https://fukushima.archive-disasters.jp/api/sparql/G0000004lodf
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: http://rdf.chise.org/sparql/
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: http://metadb.riken.jp/endpoint
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- url: http://kg.hozo.jp/fuseki/kgrc/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
