@@ -65,6 +65,10 @@
   url: https://ld.cultural.jp/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: www.digital.archives.go.jp
+  url: https://www.digital.archives.go.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: id.ndl.go.jp
   url: https://id.ndl.go.jp/auth/ndla
   params: 
@@ -109,6 +113,10 @@
   url: http://dbtune.org/musicbrainz/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: imas
+  url: https://sparql.crssnky.xyz/spql/imas/query
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: prismdb
   url: https://prismdb.takanakahiko.me/sparql
   params: 
@@ -135,5 +143,9 @@
     query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: kgrc
   url: http://kg.hozo.jp/fuseki/kgrc/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: loa
+  url: https://uedayou.net/loa/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
