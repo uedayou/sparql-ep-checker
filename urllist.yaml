@@ -149,3 +149,7 @@
   url: https://uedayou.net/loa/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: sparql.metadata.moe
+  url: https://sparql.metadata.moe/madb/query
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
