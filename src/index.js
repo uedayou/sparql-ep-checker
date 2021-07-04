@@ -2,25 +2,43 @@ const fs = require('fs');
 const yaml = require('js-yaml');
 const axios = require('axios');
 
+const DOCS_DIR = `${__dirname}/../docs/`;
+const OUTPUT_DIR = `checks/`;
+const ASSETS_DIR = `${__dirname}/../assets/`;
+
+const CHECKLIST_FILENAME = `${__dirname}/../urllist.yaml`;
+
 main();
 
 async function main() {
 	const [success, failure] = getSvgs();
-	const docs_dir = __dirname+"/../docs/"
-	const urllist = yaml.load(fs.readFileSync(__dirname+"/../urllist.yaml", 'utf8'));
+	const urllist = yaml.load(fs.readFileSync(CHECKLIST_FILENAME, 'utf8'));
+	const checklist = [];
 
-	for (const obj of urllist) {
-		let url = obj.url;
-		const flag = await checkUrl(url, obj.params, obj.type);
-		console.log(`check : ${obj.url} => ${(flag ? "〇" : "×")}`);
+	for (const item of urllist) {
+		let url = item.url;
+		const flag = await checkUrl(url, item.params, item.type);
+		console.log(`check : ${url} => ${(flag ? "〇" : "×")}`);
 		const svg = flag ? success : failure;
-		const dir_name = obj.name || encodeURIComponent(obj.url);
-		const dir = docs_dir+dir_name+"/";
+		const dir_name = item.name || encodeURIComponent(url);
+		const dir = `${DOCS_DIR}${OUTPUT_DIR}${dir_name}/`;
 		!fs.existsSync(dir) && fs.mkdirSync(dir, { recursive: true });
 		fs.writeFileSync(dir+"check.svg", svg);
-		fs.writeFileSync(dir+"update.txt", new Date().toString());
+		const _date = new Date().toString();
+		fs.writeFileSync(dir+"update.txt", _date);
+		checklist.push({
+			name: dir_name,
+			url: url,
+			requestUrl: getRequestUrl(url, item.params),
+			updatedAt: _date,
+			status: flag,
+			statusImg: `${OUTPUT_DIR}${dir_name}/check.svg`,
+		});
 	}
-	fs.writeFileSync(docs_dir+"update.txt", new Date().toString());
+	fs.writeFileSync(
+		DOCS_DIR+"status.js", 
+		`var data = ${JSON.stringify(checklist)};`
+	);
 }
 
 async function checkUrl(url, params, type) {
@@ -43,15 +61,18 @@ async function checkUrl(url, params, type) {
 		}
 		flag = true;
 	} catch (e) {
-		//console.error(e);
 		console.error(e.response ? e.response.status : e.errno);
 	}
 	return flag;
 }
 
 function getSvgs() {
-	const path = __dirname+"/../assets/";
-	const success = fs.readFileSync(path+"success.svg", "UTF8");
-	const failure = fs.readFileSync(path+"failure.svg", "UTF8");
+	const success = fs.readFileSync(ASSETS_DIR+"success.svg", "UTF8");
+	const failure = fs.readFileSync(ASSETS_DIR+"failure.svg", "UTF8");
 	return [success, failure];
+}
+
+function getRequestUrl(url, params) {
+	if (!params) return url;
+	return axios.create().getUri({url, params});
 }
