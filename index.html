@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The status of web pages</title>
+  <title>SPARQL Endpoint Health Checker</title>
+  
+  <meta name="description" content="「Qiita: 利用可能なSPARQLエンドポイントリスト(2021年7月版)」のエンドポイントが動作しているかをチェックできます。">
+  <meta property="og:title" content="SPARQL Endpoint Health Checker">
+  <meta property="og:description" content="「Qiita: 利用可能なSPARQLエンドポイントリスト(2021年7月版)」のエンドポイントが動作しているかをチェックできます。">
+  <meta property="og:url" content="https://uedayou.github.io/sparql-ep-checker/">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/7145536">
+
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
@@ -12,7 +20,14 @@
     <v-app>
       <v-main>
         <v-container class="pt-10 pb-5">
-          <h1 class="text-center py-5">The status of web pages</h1>
+          <h1 class="text-center py-5">
+            SPARQL Endpoint Health Checker
+          </h1>
+          <p class="text-justify">
+            <a href="https://qiita.com/uedayou/items/9e4c6029a2cb6b76de9f" target="_blank" rel="noreferrer noopener">
+              Qiita: 利用可能なSPARQLエンドポイントリスト(2021年7月版)
+            </a> のエンドポイントが動作しているかをチェックできます。
+          </p>
           <v-divider></v-divider>
           <v-simple-table>
             <template v-slot:default>
@@ -36,7 +51,7 @@
                 <tr v-for="item in status"
                   :key="item.name"> 
                   <td>
-                    {{ item.name }}
+                    {{ titles[item.name] || item.name }}
                   </td>
                   <td>
                     <a :href="item.requestUrl" 
@@ -46,7 +61,7 @@
                     </a>
                   </td>
                   <td>
-                    {{ item.updatedAt }}
+                    {{ new Date(item.updatedAt).toISOString() }}
                   </td>
                   <td class="text-center">
                     <img :src="item.statusImg" width="20" />
@@ -69,7 +84,47 @@
       vuetify: new Vuetify(),
       data () {
         return {
-          status: data
+          status: data,
+          titles: {
+            "dbpedia.org": "DBpedia",
+            "ja.dbpedia.org": "DBpedia Japanese",
+            "query.wikidata.org": "Wikidata",
+            "harp.lg.jp": "北海道オープンデータポータル",
+            "opendata.pref.saitama.lg.jp": "埼玉県オープンデータポータルサイト",
+            "data.city.osaka.lg.jp": "大阪市オープンデータポータルサイト",
+            "sparql.city.kyoto.lg.jp": "京都市オープンデータポータルサイト",
+            "data.city.kobe.lg.jp": "神戸市オープンデータポータルサイト",
+            "data.city.yokohama.lg.jp": "横浜市オープンデータポータル",
+            "data.city.ikoma.lg.jp": "生駒市オープンデータポータルサイト",
+            "lod.dataeye.jp": "data eye（データアイ）高梁川流域オープンデータ",
+            "data.yafjp.org": "Yokohama Art LOD",
+            "sparql.opendata.cc": "opendata.cc",
+            "sparql.odp.jig.jp": "オープンデータプラットフォーム",
+            "jpsearch.go.jp": "ジャパンサーチ",
+            "ld.cultural.jp": "Cultural Japan",
+            "www.digital.archives.go.jp": "国立公文書館デジタルアーカイブ",
+            "id.ndl.go.jp": "Web NDL Authorities",
+            "isil-lod-jp": "ISIL-LOD（図書館及び関連組織のための国際標準識別子）試行版",
+            "ndlsh": "NDLSH（国立国会図書館件名標目表）",
+            "ndc9": "NDC（日本十進分類法）第9版",
+            "ndc8": "NDC（日本十進分類法）第8版",
+            "sparql.linkedopendata.cf": "小倉百人一首LODの世界",
+            "linkedgeodata.org": "Linked Geo Data",
+            "data.e-stat.go.jp": "統計LOD",
+            "api.info.gbiz.go.jp": "gBizInfo",
+            "linkeddata.rcgs.jp": "RCGS(立命館大学ゲーム研究センター) コレクション",
+            "musicbrainz": "LinkedBrainz",
+            "imas": "im@sparql",
+            "prismdb": "PrismDB",
+            "owlramen": "ＯＷＬ de ラーメンオントロジー",
+            "jrslod": "鉄道駅LOD",
+            "fukushima.archive-disasters.jp": "東日本大震災アーカイブ Fukushima",
+            "rdf.chise.org": "文字情報サービス環境 CHISE",
+            "metadb.riken.jp": "理研メタデータベース",
+            "kgrc": "ナレッジグラフ推論チャレンジ",
+            "loa": "Linked Open Addresses Japan",
+            "sparql.metadata.moe": "メディア芸術データベース SPARQLエンドポイント (Unofficial)",
+          },
         }
       },
     })
