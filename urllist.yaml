@@ -153,3 +153,7 @@
   url: https://sparql.metadata.moe/madb/query
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: ld-library
+  url: https://uedayou.net/ld/library/api/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
