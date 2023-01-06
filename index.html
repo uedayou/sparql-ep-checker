@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-45357765-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-45357765-1');
-  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NHFJXTX');</script>
+  <!-- End Google Tag Manager -->
 
   <title>SPARQL Endpoint Health Checker</title>
   
-  <meta name="description" content="「Qiita: 利用可能なSPARQLエンドポイントリスト(2021年7月版)」のエンドポイントが動作しているかをチェックできます。">
+  <meta name="description" content="「Qiita: 利用可能なSPARQLエンドポイントリスト(2023年1月版)」のエンドポイントが動作しているかをチェックできます。">
   <meta property="og:title" content="SPARQL Endpoint Health Checker">
-  <meta property="og:description" content="「Qiita: 利用可能なSPARQLエンドポイントリスト(2021年7月版)」のエンドポイントが動作しているかをチェックできます。">
+  <meta property="og:description" content="「Qiita: 利用可能なSPARQLエンドポイントリスト(2023年1月版)」のエンドポイントが動作しているかをチェックできます。">
   <meta property="og:url" content="https://uedayou.github.io/sparql-ep-checker/">
   <meta name="twitter:card" content="summary">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/7145536">
@@ -26,6 +24,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NHFJXTX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div id="app">
     <v-app>
       <v-main>
@@ -35,8 +37,11 @@
           </h1>
           <p class="text-justify">
             <a href="https://qiita.com/uedayou/items/9e4c6029a2cb6b76de9f" target="_blank" rel="noreferrer noopener">
-              Qiita: 利用可能なSPARQLエンドポイントリスト(2021年7月版)
+              Qiita: 利用可能なSPARQLエンドポイントリスト(2023年1月版)
             </a> のエンドポイントが動作しているかをチェックできます。
+          </p>
+          <p class="text-justify">
+            各エンドポイントの詳細は、<a href="https://uedayou.net/ldapinavi/" target="_blank" rel="noreferrer noopener">Linked Data API Navi</a>を参照してください。
           </p>
           <v-divider></v-divider>
           <v-simple-table>
@@ -101,12 +106,14 @@
             "query.wikidata.org": "Wikidata",
             "harp.lg.jp": "北海道オープンデータポータル",
             "opendata.pref.saitama.lg.jp": "埼玉県オープンデータポータルサイト",
-            "data.city.osaka.lg.jp": "大阪市オープンデータポータルサイト",
+            // 2023/01 アクセス不能
+            //"data.city.osaka.lg.jp": "大阪市オープンデータポータルサイト",
             "sparql.city.kyoto.lg.jp": "京都市オープンデータポータルサイト",
             "data.city.kobe.lg.jp": "神戸市オープンデータポータルサイト",
             "data.city.yokohama.lg.jp": "横浜市オープンデータポータル",
             "data.city.ikoma.lg.jp": "生駒市オープンデータポータルサイト",
-            "lod.dataeye.jp": "data eye（データアイ）高梁川流域オープンデータ",
+            // 2023/01 アクセス不能
+            //"lod.dataeye.jp": "data eye（データアイ）高梁川流域オープンデータ",
             "data.yafjp.org": "Yokohama Art LOD",
             "sparql.opendata.cc": "opendata.cc",
             "sparql.odp.jig.jp": "オープンデータプラットフォーム",
@@ -135,6 +142,20 @@
             "loa": "Linked Open Addresses Japan",
             "sparql.metadata.moe": "メディア芸術データベース SPARQLエンドポイント (Unofficial)",
             "ld-library": "図書館施設データポータル",
+            "medb": "メディア芸術データベース",
+            "assaultlily-rdf": "assaultlily-rdf",
+            "pikopikopla-space": "ピコピコプラネット☆SPACE",
+            "ogi-han-nikki": "小城藩日記データベース",
+            "wcontology": "Wikipediaカテゴリオントロジー",
+            "owlramen-mirko": "ＯＷＬ de ラーメンオントロジー",
+            "imiramen-mirko": "共通語彙基盤ラーメンデータセット in Kyoto",
+            "loaj-nearby": "住所LOD 周辺情報 Web API",
+            "ldapinavi": "Linked Data API Navi",
+            "VirtualHome2KG": "VirtualHome2KGデータセット―家庭内の日常生活行動のシミュレーション動画とナレッジグラフ―",
+            "hersys-mirko-jp": "HER-SYSデータ利活用推進手法の提案及びダミーデータLOD",
+            "BusoJiyuMinkenLOD": "武相自由民権LOD",
+            "agmsearch": "AGMサーチ",
+            "jp-earthquake": "地震LOD",
           },
         }
       },
