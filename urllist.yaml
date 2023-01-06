@@ -21,16 +21,20 @@
   url: https://opendata.pref.saitama.lg.jp/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
-- name: data.city.osaka.lg.jp
-  url: https://data.city.osaka.lg.jp/sparql
-  params: 
-    query: SELECT * WHERE{?s ?p ?o.} limit 10
+# 2023/01 アクセス不能
+#- name: data.city.osaka.lg.jp
+#  url: https://data.city.osaka.lg.jp/sparql
+#  params: 
+#    query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: sparql.city.kyoto.lg.jp
   url: https://sparql.city.kyoto.lg.jp/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: data.city.kobe.lg.jp
-  url: https://data.city.kobe.lg.jp/sparql
+  # ～2021
+  # url: https://data.city.kobe.lg.jp/sparql
+  # 2022～
+  url: https://sparql.city.kobe.lg.jp/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: data.city.yokohama.lg.jp
@@ -41,10 +45,11 @@
   url: https://data.city.ikoma.lg.jp/sparql
   params: 
     query: SELECT * WHERE{?s ?p ?o.} limit 10
-- name: lod.dataeye.jp
-  url: https://lod.dataeye.jp/sparql
-  params: 
-    query: SELECT * WHERE{?s ?p ?o.} limit 10
+# 2023/01 アクセス不能
+#- name: lod.dataeye.jp
+#  url: https://lod.dataeye.jp/sparql
+#  params: 
+#    query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: data.yafjp.org
   url: http://data.yafjp.org/sparql
   params: 
@@ -129,10 +134,14 @@
   url: https://api-jrslod.uedayou.net/sparql
   params: 
     query: "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> select * where{ ?s rdfs:label ?label. } limit 10"
-- name: fukushima.archive-disasters.jp
-  url: http://fukushima.archive-disasters.jp/api/sparql/G0000004lodf
-  params: 
-    query: SELECT * WHERE{?s ?p ?o.} limit 10
+# メンテナンス中
+# `東日本大震災アーカイブfukushimaはシステムメンテナンスのため
+#  2022年9月26日より休止しております。`
+# https://fukushima.archive-disasters.jp/
+#- name: fukushima.archive-disasters.jp
+#  url: http://fukushima.archive-disasters.jp/api/sparql/G0000004lodf
+#  params: 
+#    query: SELECT * WHERE{?s ?p ?o.} limit 10
 - name: rdf.chise.org
   url: http://rdf.chise.org/sparql/
   params: 
@@ -156,4 +165,61 @@
 - name: ld-library
   url: https://uedayou.net/ld/library/api/sparql
   params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+# 2023/01 新規追加分
+- name: ldapinavi
+  url: https://uedayou.net/ldapinavi/api/go2museum/museum/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: medb
+  url: https://mediag.bunka.go.jp/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: assaultlily-rdf
+  url: https://luciadb.assaultlily.com/sparql/query
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: pikopikopla-space
+  url: https://space.pikopikopla.net/sparql
+  params: 
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: ogi-han-nikki
+  url: https://crch.dl.saga-u.ac.jp/sparql/
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: wcontology
+  url: http://wcontology.org/sparql
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: owlramen-mirko
+  url: https://dydra.com/haychmash/owlramen/sparql
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: imiramen-mirko
+  url: https://dydra.com/haychmash/ramen/sparql
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: loaj-nearby
+  url: https://uedayou.net/loa/nearby/sparql
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: VirtualHome2KG
+  url: http://kgrc4si.ml:7200/repositories/KGRC4SIv0
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: hersys-mirko-jp
+  url: https://hersys.mirko.jp/sparql/
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: BusoJiyuMinkenLOD
+  url: https://jm.midoriit.com/sparql.php
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: agmsearch
+  url: https://dydra.com/fukudakz/agmsearchendpoint/sparql
+  params:
+    query: SELECT * WHERE{?s ?p ?o.} limit 10
+- name: jp-earthquake
+  url: https://seismic.balog.jp/sparql
+  params:
     query: SELECT * WHERE{?s ?p ?o.} limit 10
